@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://kit.fontawesome.com/f04dd70b3c.js" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>List of All Product Categories.</h2>
+    <% productCategories.forEach(function(cat){ %>
+        <h3><a href="/categorydetails/<%= cat._id %>"><%= cat.title %>  </a>   <a href="/delete/<%= cat._id %>"><i class="fas fa-trash-alt"></i></a></h3>
+      <% }); %>
+    <form action="/addcategorie" method="get">
+    <input  class="addcat" type="submit" value="Add Product Categorie">
+    </form>
+  </body>
+</html>

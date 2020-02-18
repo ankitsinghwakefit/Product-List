@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div>
+        <h1>Welcome to <%= existingdata.title %></h1>
+        
+        <label for="Cat">Categorie </label>
+        <input type="text" value="<%= existingdata.title %>" name="Name">
+        
+        <div class="product_container">
+        <form action="/product" method="POST">
+            <input type="hidden" name="_id" value="<%= existingdata._id %>">
+            <input
+                type="text"
+                name="text"
+                placeholder="product name"
+            />
+            <input
+                type="text"
+                name="details"
+                placeholder="product details"
+            />
+            <input
+                type="text"
+                name="price"
+                placeholder="price"
+            />
+            <input
+                class="submit_button"
+                type="submit"
+                value="Add Product"
+            />
+        </form>
+       <div class="product">
+        <h4>Product</h4>
+        <% existingdata.products.forEach( product => {%>
+        <p><%= product.text %></p>
+        <p><%= product.details %></p>
+        <p><%= product.price %></p>
+        <hr>
+        <%})%>
+       </div>
+       <a href="/">Back</a>
+    </div>
+    </div>
+  </body>
+</html>
